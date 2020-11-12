@@ -109,9 +109,9 @@ int SearchCityByID(Node* pList, int ID, City* pCity)
     
     while(pList !=NULL)
     {
-        *pCity = pList->city;
         if(pList->city.id == ID)
         {
+            *pCity = pList->city;
             return i;
         }
         pList = pList->pNext;
