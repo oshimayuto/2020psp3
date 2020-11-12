@@ -1,5 +1,5 @@
 # 課題2 レポート
-学籍番号　氏名
+学籍番号35319014　氏名大嶌　優仁
 
 
 ## 課題
@@ -27,7 +27,13 @@ typedef struct {
 } City;
 ```
 
-2. 必須問題：実装する関数  
+英語版のデータを用意しました。名称は、nagasaki2.csvです。チャレンジ問題2で、一致する文字列が見つからない場合、こちらを利用してください。その場合、main関数内にあるfopenの引数を下記のように変更してください。
+```    
+fp = fopen("nagasaki2.csv","r");
+```
+
+
+1. 必須問題：実装する関数  
 (1) InsertNewNode：必要なメモリを確保し、リストの先頭に新しいデータを挿入する。  
     [入力]
     - City newCity: リストに挿入する市町村のデータ
@@ -53,6 +59,7 @@ typedef struct {
 
 4. チャレンジ問題  
 (1) DeleteNodeAt: 任意のノードをリストから削除する(10点)  
+CHALLENGE2を有効にしてください。  
     [入力]  
     - Node** ppNode: リストの先頭を指すポインタ変数のアドレス(ポインタのポインタ)  
     - int cn: ノードの位置(先頭のノードを0とする)  
@@ -60,15 +67,33 @@ typedef struct {
     - return値: 削除に成功したらSUCCESS、失敗したらERRR  
 
     (2) SearchCityByName: 市町村を名称で検索する(5点)  
+    CHALLENGE1を有効にしてください。  
     [入力]
-    - int key: 検索する市町村のID
-    - City arrayCity: 検索対象の都市別人口データ(配列)
-    - int size: データの数  
+    - Node* pList: リストの先頭アドレス
+    - char* cityName: 検索する市町村の名称
 
     [出力]  
-    - return値: IDが合致した配列データのindex。IDが一致するデータがない場合は-1。
+    - return値: cityNameが合致した場所(先頭を0とする)。cityNameが一致するデータがない場合は-1。
+    - City* pCity: IDが合致した市町村のデータを入れる
 
 ## ソースコードの説明
+必須問題(1)
+79.メモリーの保存先を確保する
+80.topを何も指さないようにしておく
+81.pNodeが指すcityにnewCityの値を入れる
+82.pNodeが指すpNextにpNextの値を入れる
+83.topをpNodeの値と同じにする
+84.topの値を返す
+
+必須問題(2)
+108.変数iを定義
+110.pListがNULLになるまで繰り返す
+111.pListが指すcityの値でpCityの値を置き換える
+112~116.pListが示すcityのidがIDと同じだった時iを戻り値として終了する
+117.pListが指すpNextの値でpListの値を置き換える
+118.iの値を1増やす
+121.-1の値を戻す
+
 
 
 
