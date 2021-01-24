@@ -79,13 +79,94 @@ int LoadData(City arrayCity[])
 void BubbleSort(City arrayCity[], int size)
 {
     //  ここを実装する
+    int pos, cnt;
+    City tmp;
 
+    while(1)
+    {
+        cnt=0;
+        for(pos=0;pos<size-1;pos++)
+        {
+            if(arrayCity[pos].total>arrayCity[pos+1].total)
+            {
+                tmp=arrayCity[pos];
+                arrayCity[pos]=arrayCity[pos+1];
+                arrayCity[pos+1]=tmp;
+                cnt++;
+            }
+        }
+        if(cnt==0)
+        {
+            break;
+        }
+    }
+    
 }
 
 
 void QuickSort(City arrayCity[], int left, int right)
 {
     //  ここを実装する
+    int i = left;
+    int j = right;
+    int index_i = left;
+    int index_j = right;
+    int pivot = arrayCity[left].seafood;
+    City table;
+
+    if(left == right)
+    {
+        return;
+    }
+    else
+    {
+        while(i<=j)
+        {
+            if(pivot < arrayCity[i].seafood)
+            {
+                index_i=i;
+                while(i<=j)
+                {
+                    if(pivot>=arrayCity[j].seafood)
+                    {
+                        index_j=j;
+                        table=arrayCity[index_j];
+                        arrayCity[index_j] = arrayCity[index_i];
+                        arrayCity[index_i] = table;
+                        break;
+                    }
+                    j--;
+                }
+            }
+            i++;
+        }
+
+        if(index_i == left)
+        {
+            table = arrayCity[left];
+            arrayCity[left] = arrayCity[right];
+            arrayCity[right] = table;
+            QuickSort(arrayCity, left, right-1);
+            QuickSort(arrayCity, right, right);
+        }
+        else if(index_i==left+1 && index_j==right)
+        {
+            QuickSort(arrayCity, left, left);
+            QuickSort(arrayCity, left+1, right);
+        }
+        else
+        {
+            index_j=j;
+            table = arrayCity[left];
+            arrayCity[left]=arrayCity[index_j];
+            arrayCity[index_j]=table;
+            QuickSort(arrayCity, left, index_j-1);
+            QuickSort(arrayCity, index_j+1, right);
+        }
+        
+    }
+    
+
 
 }
 
