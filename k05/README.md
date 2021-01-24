@@ -115,6 +115,23 @@ int AdjacencyMatrix[MAX_STATIONS][MAX_STATIONS] = {
 ## 出力結果
 
 ```
+0 is visited
+1 is visited
+2 is visited
+3 is visited
+4 is visited
+5 is visited
+6 is visited
+7 is visited
+0 is visited
+1 is visited
+2 is visited
+3 is visited
+4 is visited
+5 is visited
+6 is visited
+7 is visited
+Time Required: 8
 
 ```
 

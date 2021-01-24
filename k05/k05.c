@@ -122,7 +122,7 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
         index=StackPop();
         if(visited[index]==UNVISITED)
         {
-            visited[index]==VISITED;
+            visited[index]=VISITED;
 
             for(i=0; i<MAX_STATIONS; i++)
             {
@@ -214,7 +214,7 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
     {
         visited[i]=UNVISITED;
     }
-    InitQueue;
+    InitQueue();
     EnQueue(start);
     while(QueueIsEmpty()==FALSE)
     {
