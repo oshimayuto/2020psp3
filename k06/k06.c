@@ -75,8 +75,11 @@ void DynamicProgLimited(Menu arrayItem[], int items, int nap_size)
       int i,j,k;
     for(i=0;i<items+1;i++)
     {
-        nap_value[i][j]=0;
-        history[i][j]=0;
+        for(j=0;j<nap_size;j++)
+        {
+            nap_value[i][j]=0;
+            history[i][j]=0;
+        }
     }
     for(i=1;i<=items;i++)
     {
